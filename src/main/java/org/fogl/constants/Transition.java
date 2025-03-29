@@ -16,27 +16,27 @@ public enum Transition {
         this.characters = characters;
     }
 
-    public boolean isNumber(Character character) {
+    public static boolean isNumber(Character character) {
         return NUMBER.characters.contains(character);
     }
 
-    public boolean isOperation(Character character) {
+    public static boolean isOperation(Character character) {
         return OPERATION.characters.contains(character);
     }
 
-    public boolean isOpeningBracket(Character character) {
+    public static boolean isOpeningBracket(Character character) {
         return OPENING_BRACKET.characters.contains(character);
     }
 
-    public boolean isClosingBracket(Character character) {
+    public static boolean isClosingBracket(Character character) {
         return CLOSING_BRACKET.characters.contains(character);
     }
 
-    public boolean isEquals(Character character) {
+    public static boolean isEquals(Character character) {
         return EQUALS.characters.contains(character);
     }
 
-    public boolean isEmpty(Character character) {
+    public static boolean isEmpty(Character character) {
         return EMPTY.characters.contains(character) || character == ' ';
     }
 }
