@@ -1,30 +1,25 @@
 package org.fogl.constants;
 
 public enum State {
-    S(false, true),
-    A(false, false),
-    B(false, false),
-    C(false, false),
-    D(false, false),
-    E(false, false),
-    F(false, false),
-    G(false, false),
-    Z(true, false),
-    ERROR(false, false),;
+    S(false),
+    A(false),
+    B(false),
+    C(false),
+    D(false),
+    E(false),
+    F(false),
+    G(false),
+    Z(true),
+    ERROR(false),;
 
-    private boolean isEndState;
-    private boolean isStartState;
+    private final boolean isEndState;
 
-    State(boolean isEndState, boolean isStartState) {
+    State(boolean isEndState) {
         this.isEndState = isEndState;
-        this.isStartState = isStartState;
     }
 
     public boolean isEndState() {
         return isEndState;
     }
 
-    public boolean isStartState() {
-        return isStartState;
-    }
 }

@@ -14,42 +14,105 @@ public class DEAAutomat {
 
         State state = State.S;
         for (char c : input.toCharArray()) {
-            System.out.println("Character: " + c);
-            System.out.println("State: " + state);
-            if (state == State.S) {
-                if (Transition.isNumber(c)) {
-                    state = State.A;
-                    continue;
-                } else if (Transition.isOpeningBracket(c)) {
-                    state = State.C;
-                    continue;
-                } else {
-                    state = State.ERROR;
-                    continue;
-                }
+            if (state == State.ERROR) {
+                break;
+            } else if (state == State.S) {
+                state = getNextStateAfterS(c);
             } else if (state == State.A) {
-                if (Transition.isNumber(c)) {
-                    state = State.A;
-                    continue;
-                } else if (Transition.isOperation(c)) {
-                    state = State.S;
-                    continue;
-                } else if (Transition.isEquals(c)) {
-                    state = State.B;
-                    continue;
-                }
+                state = getNextStateAfterA(c);
             } else if (state == State.B) {
-
+               state = getNextStateAfterBorZ(c);
+            } else if (state == State.C) {
+                state = getNextStateAfterC(c);
+            } else if (state == State.D) {
+                state = getNextStateAfterD(c);
+            } else if (state == State.E) {
+                state = getNextStateAfterE(c);
+            } else if (state == State.F) {
+                state = getNextStateAfterF(c);
+            } else if (state == State.G) {
+                state = getNextStateAfterG(c);
+            } else if (state == State.Z) {
+                state = getNextStateAfterBorZ(c);
             }
-
         }
-
-
-        return true;
+        return state.isEndState();
     }
 
 
     public static String removeAllSpacesFromInput(String input){
         return input.replaceAll("\\s+", "");
+    }
+
+    public static State getNextStateAfterS(Character c){
+        if (Transition.isNumber(c)) {
+            return State.A;
+        } else if (Transition.isOpeningBracket(c)) {
+            return State.C;
+        }
+        return State.ERROR;
+    }
+
+    public static State getNextStateAfterA(Character c) {
+        if (Transition.isNumber(c)) {
+            return State.A;
+        } else if (Transition.isOperation(c)) {
+            return State.S;
+        } else if (Transition.isEquals(c)) {
+            return State.B;
+        }
+        return State.ERROR;
+    }
+
+    public static State getNextStateAfterBorZ(Character c){
+        if (Transition.isNumber(c)) {
+            return State.Z;
+        }
+        return State.ERROR;
+    }
+
+    public static State getNextStateAfterC(Character c){
+        if (Transition.isNumber(c)) {
+            return State.D;
+        }
+        return State.ERROR;
+    }
+
+    public static State getNextStateAfterD(Character c){
+        if (Transition.isNumber(c)) {
+            return State.D;
+        } else if (Transition.isClosingBracket(c)) {
+            return State.G;
+        } else if (Transition.isOperation(c)) {
+            return State.E;
+        }
+        return State.ERROR;
+    }
+
+    public static State getNextStateAfterE(Character c){
+        if (Transition.isNumber(c)) {
+            return State.F;
+        }
+        return State.ERROR;
+    }
+
+    public static State getNextStateAfterF(Character c){
+        if (Transition.isNumber(c)) {
+            return State.F;
+        } else if (Transition.isClosingBracket(c)) {
+            return State.G;
+        } else if (Transition.isOperation(c)) {
+            return State.C;
+        }
+        return State.ERROR;
+    }
+
+    public static State getNextStateAfterG(Character c){
+        if (Transition.isOperation(c)) {
+            return State.S;
+        } else if (Transition.isEquals(c)) {
+            return State.B;
+        }
+        return State.ERROR;
     }
 }

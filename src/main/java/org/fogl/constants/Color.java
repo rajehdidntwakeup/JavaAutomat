@@ -6,7 +6,7 @@ public enum Color {
     YELLOW("\u001B[33m"),
     RESET("\u001B[0m");
 
-    private String value;
+    private final String value;
 
     Color(String value) {
         this.value = value;

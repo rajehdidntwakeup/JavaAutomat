@@ -7,10 +7,9 @@ public enum Transition {
     OPERATION(List.of('+', '-', '*', '/')),
     OPENING_BRACKET(List.of('(')),
     CLOSING_BRACKET(List.of(')')),
-    EQUALS(List.of('=')),
-    EMPTY(List.of());
+    EQUALS(List.of('='));
 
-    private List<Character> characters;
+    private final List<Character> characters;
 
     Transition(List<Character> characters) {
         this.characters = characters;
@@ -36,7 +35,4 @@ public enum Transition {
         return EQUALS.characters.contains(character);
     }
 
-    public static boolean isEmpty(Character character) {
-        return EMPTY.characters.contains(character) || character == ' ';
-    }
 }
