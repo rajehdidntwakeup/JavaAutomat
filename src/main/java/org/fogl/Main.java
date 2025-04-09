@@ -25,9 +25,6 @@ public class Main {
             } else {
                 System.out.println("Correct input " + x);
             }
-
         }
-
-
     }
 }
