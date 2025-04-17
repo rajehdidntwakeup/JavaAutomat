@@ -22,9 +22,9 @@ public enum StarterMsg {
                 
                 """),
     MENU("""
-             𝕮𝖍𝖔𝖔𝖘𝖊 𝖙𝖍𝖊 𝖒𝖔𝖉𝖊 𝖓𝖚𝖒𝖇𝖊𝖗:
-                1. 𝑴𝒂𝒏𝒖𝒂𝒍 𝒆𝒏𝒕𝒓𝒚.
-                2. 𝑹𝒆𝒂𝒅 𝒇𝒓𝒐𝒎 𝒇𝒊𝒍𝒆.
+             Choose the mode number:
+                1. Manual entry.
+                2. Read from file.
             """);
 
     private final String value;
