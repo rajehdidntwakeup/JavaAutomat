@@ -22,11 +22,12 @@ public class DEAAutomat {
      * @return {@code true} if the input string is accepted by the DFA, {@code false} otherwise
      */
     public static boolean DEA(String input){
-        /* DO sth */
 
-        System.out.println("Original input: " + input);
+        if (input == null || input.isEmpty()) {
+            return false;
+        }
+
         input = removeAllSpacesFromInput(input);
-        System.out.println("Input without spaces : " + input);
 
         State state = State.S;
         for (char c : input.toCharArray()) {

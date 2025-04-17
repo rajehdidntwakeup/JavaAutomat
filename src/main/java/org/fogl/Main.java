@@ -1,30 +1,50 @@
 package org.fogl;
 
-import org.fogl.automat.DEAAutomat;
+import org.fogl.constants.Color;
+import org.fogl.constants.StarterMsg;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+import static org.fogl.reader.Reader.readFromConsole;
+import static org.fogl.reader.Reader.readFromFile;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Heute programmieren wir einen Automaten");
 
-        String input1 = "876+23=32";
-        String input2 = "234-234-432+(43)=342";
-        String input3 = "(56+34)-324*34 =43";
-        String input4 = "234/433+(4234+23)=342";
-        String input5 = "234+53+(34)v=43";
-        String input6 = "3 * 4 + ( 443 + 534 ) - 43 / 43 + (43 + 44) = 234";
+        System.out.println(Color.YELLOW.getValue() + StarterMsg.WELCOME.getValue() + Color.RESET.getValue());
+        System.out.println(Color.YELLOW.getValue() + StarterMsg.MENU.getValue() + Color.RESET.getValue());
 
-        List<String> inputList = Arrays.asList(input1, input2, input3, input4, input5, input6);
+        Scanner scanner = new Scanner(System.in);
+        try {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-        for (int x = 1; x < inputList.size() + 1; x++) {
-            boolean isCorrect = DEAAutomat.DEA(inputList.get(x-1));
-            if (!isCorrect) {
-                System.out.println("Error in DEA: input " + x);
-            } else {
-                System.out.println("Correct input " + x);
+            switch (choice) {
+                case 1:
+                    System.out.println(Color.YELLOW.getValue() +
+                            "[INFO] Enter the mathematical equation to validate, then press Enter:" +
+                            Color.RESET.getValue() + "\n");
+                    String equation = scanner.nextLine();
+                    readFromConsole(equation);
+                    break;
+                case 2:
+                    System.out.println(Color.YELLOW.getValue() + "[INFO] Enter the file path: " + Color.RESET.getValue());
+                    String filePath = scanner.nextLine();
+                    readFromFile(filePath);
+                    break;
+                default:
+                    System.out.println(Color.RED.getValue() +
+                            "[ERROR] Sorry, but this mode does not exist." +
+                            Color.RESET.getValue());
+                    break;
             }
+        } catch (InputMismatchException e) {
+            System.out.println(Color.RED.getValue() +
+                    "[ERROR] Sorry, but there is something wrong with your input." +
+                    Color.RESET.getValue());
+        } finally {
+            scanner.close();
         }
     }
 }
