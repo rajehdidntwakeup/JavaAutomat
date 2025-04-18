@@ -3,7 +3,7 @@ package org.fogl.automat;
 import org.fogl.constants.State;
 import org.fogl.constants.Transition;
 
-public class DEAAutomat {
+public class DFAAutomat {
 
     /**
      * Simulates a Deterministic Finite Automaton (DFA) to validate a given input string.
@@ -21,7 +21,7 @@ public class DEAAutomat {
      * @param input the input string to evaluate using the DFA
      * @return {@code true} if the input string is accepted by the DFA, {@code false} otherwise
      */
-    public static boolean DEA(String input){
+    public static boolean DFA(String input){
 
         if (input == null || input.isEmpty()) {
             return false;

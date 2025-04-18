@@ -1,6 +1,6 @@
 package org.fogl.reader;
 
-import org.fogl.automat.DEAAutomat;
+import org.fogl.automat.DFAAutomat;
 import org.fogl.constants.Color;
 
 import java.io.*;
@@ -73,7 +73,7 @@ public class Reader {
             return;
         }
 
-        if (DEAAutomat.DEA(input)) {
+        if (DFAAutomat.DFA(input)) {
             System.out.println(Color.GREEN.getValue() +
                     "[SUCCESS] The input '" + input + "' is syntactically correct." +
                     Color.RESET.getValue());
