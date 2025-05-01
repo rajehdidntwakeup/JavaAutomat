@@ -11,7 +11,7 @@ public class TestAutomat {
 
     private final String filepath = "src/test/resources/testfile.txt";
     @Test
-    public void testAutomat() {
+    public void testAutomatreadFromFile() {
 
         Assertions.assertDoesNotThrow(()-> Reader.readFromFile(filepath));
 

@@ -51,14 +51,6 @@ public class Reader {
         }
     }
 
-    /**
-     * Processes a mathematical equation provided via the console by validating its syntax.
-     *
-     * @param equation the equation string entered by the user to be checked
-     */
-    public static void readFromConsole(String equation) {
-        checkTheInputAndPrintTheResult(equation);
-    }
 
     /**
      * Validates the given input using a DEA-based syntax check and prints the result.

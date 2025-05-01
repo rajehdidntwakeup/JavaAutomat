@@ -6,8 +6,7 @@ import org.fogl.constants.StarterMsg;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static org.fogl.reader.Reader.readFromConsole;
-import static org.fogl.reader.Reader.readFromFile;
+import static org.fogl.reader.Reader.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,7 +25,7 @@ public class Main {
                             "[INFO] Enter the mathematical equation to validate, then press Enter:" +
                             Color.RESET.getValue() + "\n");
                     String equation = scanner.nextLine();
-                    readFromConsole(equation);
+                    checkTheInputAndPrintTheResult(equation);
                     break;
                 case 2:
                     System.out.println(Color.YELLOW.getValue() + "[INFO] Enter the file path: " + Color.RESET.getValue());
