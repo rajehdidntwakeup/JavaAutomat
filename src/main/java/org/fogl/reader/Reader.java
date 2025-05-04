@@ -41,7 +41,7 @@ public class Reader {
                 return;
             }
 
-            lines.forEach(Reader::checkTheInputAndPrintTheResult);
+            lines.forEach(Reader::readAndCheckTheInputAndPrintTheResult);
 
         } catch (IOException e) {
             System.out.println(Color.RED.getValue() +
@@ -53,11 +53,11 @@ public class Reader {
 
 
     /**
-     * Validates the given input using a DEA-based syntax check and prints the result.
+     * Reads & validates the given input using a DEA-based syntax check and prints the result.
      *
      * @param input the string input to validate
      */
-    public static void checkTheInputAndPrintTheResult(String input) {
+    public static void readAndCheckTheInputAndPrintTheResult(String input) {
         if (input == null || input.trim().isEmpty()) {
             System.out.println(Color.RED.getValue() +
                     "[ERROR] No input provided!" +

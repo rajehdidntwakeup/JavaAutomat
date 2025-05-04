@@ -25,7 +25,7 @@ public class Main {
                             "[INFO] Enter the mathematical equation to validate, then press Enter:" +
                             Color.RESET.getValue() + "\n");
                     String equation = scanner.nextLine();
-                    checkTheInputAndPrintTheResult(equation);
+                    readAndCheckTheInputAndPrintTheResult(equation);
                     break;
                 case 2:
                     System.out.println(Color.YELLOW.getValue() + "[INFO] Enter the file path: " + Color.RESET.getValue());

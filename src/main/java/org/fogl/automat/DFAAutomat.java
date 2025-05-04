@@ -19,13 +19,9 @@ public class DFAAutomat {
      * is an accepting (end) state, as determined by {@code state.isEndState()}; otherwise, it returns {@code false}.
      *
      * @param input the input string to evaluate using the DFA
-     * @return {@code true} if the input string is accepted by the DFA, {@code false} otherwise
+     * @return {@code true} if the DFA accepts the input string, {@code false} otherwise
      */
     public static boolean DFA(String input){
-
-        if (input == null || input.isEmpty()) {
-            return false;
-        }
 
         input = removeAllSpacesFromInput(input);
 

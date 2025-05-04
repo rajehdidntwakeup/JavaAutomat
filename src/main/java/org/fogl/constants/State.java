@@ -1,5 +1,8 @@
 package org.fogl.constants;
 
+import lombok.Getter;
+
+@Getter
 public enum State {
     S(false),
     A(false),
@@ -16,10 +19,6 @@ public enum State {
 
     State(boolean isEndState) {
         this.isEndState = isEndState;
-    }
-
-    public boolean isEndState() {
-        return isEndState;
     }
 
 }

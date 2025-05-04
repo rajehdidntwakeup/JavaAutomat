@@ -1,5 +1,8 @@
 package org.fogl.constants;
 
+import lombok.Getter;
+
+@Getter
 public enum Color {
     RED("\u001B[31m"),
     GREEN("\u001B[32m"),
@@ -10,10 +13,6 @@ public enum Color {
 
     Color(String value) {
         this.value = value;
-    }
-
-    public String getValue() {
-        return value;
     }
 
 }
